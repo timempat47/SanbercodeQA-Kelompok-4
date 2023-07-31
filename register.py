@@ -2,230 +2,166 @@ import unittest
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+import HtmlTestRunner
+from POM.Register_Page import RegisterPage
+from POM.Open_Web import OpenWeb
 
-class MagentoLogin(unittest.TestCase):
+class MagentoRegister(unittest.TestCase):
 
     def setUp(self):
-        self.driver = webdriver.Chrome("/Drivers/chromedriver/chromedriver.exe")
+        chrome_options = Options()
+        chrome_options.add_argument("--log-level=3")  # Mengatur log level menjadi ERROR
+        driver_service = Service(executable_path="C:/webdrivers/chromedriver")
+        self.driver = webdriver.Chrome(service=driver_service, options=chrome_options)
+
     
     def test_register(self):
-        driver = self.driver
-        driver.get("https://magento.softwaretestingboard.com/")
-        el = driver.find_element(By.LINK_TEXT,"Create an Account")
-        el.click()
-        firstName = driver.find_element(By.NAME,"firstname")
-        firstName.send_keys("Jeff")
-        lastName = driver.find_element(By.NAME,"lastname")
-        lastName.send_keys("Scott")
-        email = driver.find_element(By.NAME,"email")
-        email.send_keys("jeffscott@gmail.com")
-        password = driver.find_element(By.NAME,"password")
-        password.send_keys("@Jeffscott12345@")
-        passConfirmation = driver.find_element(By.NAME,"password_confirmation")
-        passConfirmation.send_keys("@Jeffscott12345@")
-        btnsignUp = driver.find_element(By.XPATH,"//button[@title='Create an Account']//span[contains(text(),'Create an Account')]")
-        btnsignUp.click()
+        OpenWeb.go_to_register_page(self.driver)
+        test_data = 'test_register'
+        register_page = RegisterPage(self.driver)
+        register_page.register_user(
+            register_page.test_data[test_data]["firstname"],
+            register_page.test_data[test_data]["lastname"],
+            register_page.test_data[test_data]["email"],
+            register_page.test_data[test_data]["password"],
+            register_page.test_data[test_data]["password_confirmation"]
+        )
 
     def test_register_1(self):
-        driver = self.driver
-        driver.get("https://magento.softwaretestingboard.com/")
-        el = driver.find_element(By.LINK_TEXT,"Create an Account")
-        el.click()
-        firstName = driver.find_element(By.NAME,"firstname")
-        firstName.send_keys("Alex")
-        lastName = driver.find_element(By.NAME,"lastname")
-        lastName.send_keys("Grimaldo")
-        email = driver.find_element(By.NAME,"email")
-        email.send_keys("jeffscott@gmail.com")
-        password = driver.find_element(By.NAME,"password")
-        password.send_keys("@Jeffscott12345@")
-        passConfirmation = driver.find_element(By.NAME,"password_confirmation")
-        passConfirmation.send_keys("@Jeffscott12345@")
-        btnsignUp = driver.find_element(By.XPATH,"//button[@title='Create an Account']//span[contains(text(),'Create an Account')]")
-        btnsignUp.click()
+        OpenWeb.go_to_register_page(self.driver)
+        test_data = 'test_register_1'
+        register_page = RegisterPage(self.driver)
+        register_page.register_user(
+            register_page.test_data[test_data]["firstname"],
+            register_page.test_data[test_data]["lastname"],
+            register_page.test_data[test_data]["email"],
+            register_page.test_data[test_data]["password"],
+            register_page.test_data[test_data]["password_confirmation"]
+        )
     
     def test_register_2(self):
-        driver = self.driver
-        driver.get("https://magento.softwaretestingboard.com/")
-        el = driver.find_element(By.LINK_TEXT,"Create an Account")
-        el.click()
-        firstName = driver.find_element(By.NAME,"firstname")
-        firstName.send_keys("Jeff")
-        lastName = driver.find_element(By.NAME,"lastname")
-        lastName.send_keys()
-        email = driver.find_element(By.NAME,"email")
-        email.send_keys("jeffscott@gmail.com")
-        password = driver.find_element(By.NAME,"password")
-        password.send_keys("@Jeffscott12345@")
-        passConfirmation = driver.find_element(By.NAME,"password_confirmation")
-        passConfirmation.send_keys("@Jeffscott12345@")
-        btnsignUp = driver.find_element(By.XPATH,"//button[@title='Create an Account']//span[contains(text(),'Create an Account')]")
-        btnsignUp.click()
+        OpenWeb.go_to_register_page(self.driver)
+        test_data = 'test_register_2'
+        register_page = RegisterPage(self.driver)
+        register_page.register_user(
+            register_page.test_data[test_data]["firstname"],
+            register_page.test_data[test_data]["lastname"],
+            register_page.test_data[test_data]["email"],
+            register_page.test_data[test_data]["password"],
+            register_page.test_data[test_data]["password_confirmation"]
+        )
     
     def test_register_3(self):
-        driver = self.driver
-        driver.get("https://magento.softwaretestingboard.com/")
-        el = driver.find_element(By.LINK_TEXT,"Create an Account")
-        el.click()
-        firstName = driver.find_element(By.NAME,"firstname")
-        firstName.send_keys()
-        lastName = driver.find_element(By.NAME,"lastname")
-        lastName.send_keys("Scott")
-        email = driver.find_element(By.NAME,"email")
-        email.send_keys("jeffscott@gmail.com")
-        password = driver.find_element(By.NAME,"password")
-        password.send_keys("@Jeffscott12345@")
-        passConfirmation = driver.find_element(By.NAME,"password_confirmation")
-        passConfirmation.send_keys("@Jeffscott12345@")
-        btnsignUp = driver.find_element(By.XPATH,"//button[@title='Create an Account']//span[contains(text(),'Create an Account')]")
-        btnsignUp.click()
+        OpenWeb.go_to_register_page(self.driver)
+        test_data = 'test_register_3'
+        register_page = RegisterPage(self.driver)
+        register_page.register_user(
+            register_page.test_data[test_data]["firstname"],
+            register_page.test_data[test_data]["lastname"],
+            register_page.test_data[test_data]["email"],
+            register_page.test_data[test_data]["password"],
+            register_page.test_data[test_data]["password_confirmation"]
+        )
     
     def test_register_4(self):
-        driver = self.driver
-        driver.get("https://magento.softwaretestingboard.com/")
-        el = driver.find_element(By.LINK_TEXT,"Create an Account")
-        el.click()
-        firstName = driver.find_element(By.NAME,"firstname")
-        firstName.send_keys()
-        lastName = driver.find_element(By.NAME,"lastname")
-        lastName.send_keys()
-        email = driver.find_element(By.NAME,"email")
-        email.send_keys("jeffscott@gmail.com")
-        password = driver.find_element(By.NAME,"password")
-        password.send_keys("@Jeffscott12345@")
-        passConfirmation = driver.find_element(By.NAME,"password_confirmation")
-        passConfirmation.send_keys("@Jeffscott12345@")
-        btnsignUp = driver.find_element(By.XPATH,"//button[@title='Create an Account']//span[contains(text(),'Create an Account')]")
-        btnsignUp.click()
+        OpenWeb.go_to_register_page(self.driver)
+        test_data = 'test_register_4'
+        register_page = RegisterPage(self.driver)
+        register_page.register_user(
+            register_page.test_data[test_data]["firstname"],
+            register_page.test_data[test_data]["lastname"],
+            register_page.test_data[test_data]["email"],
+            register_page.test_data[test_data]["password"],
+            register_page.test_data[test_data]["password_confirmation"]
+        )
     
     def test_register_5(self):
-        driver = self.driver
-        driver.get("https://magento.softwaretestingboard.com/")
-        el = driver.find_element(By.LINK_TEXT,"Create an Account")
-        el.click()
-        firstName = driver.find_element(By.NAME,"firstname")
-        firstName.send_keys("Jeff")
-        lastName = driver.find_element(By.NAME,"lastname")
-        lastName.send_keys("Scott")
-        email = driver.find_element(By.NAME,"email")
-        email.send_keys("jeffscott.com")
-        password = driver.find_element(By.NAME,"password")
-        password.send_keys("@Jeffscott12345@")
-        passConfirmation = driver.find_element(By.NAME,"password_confirmation")
-        passConfirmation.send_keys("@Jeffscott12345@")
-        btnsignUp = driver.find_element(By.XPATH,"//button[@title='Create an Account']//span[contains(text(),'Create an Account')]")
-        btnsignUp.click()
+        OpenWeb.go_to_register_page(self.driver)
+        test_data = 'test_register_5'
+        register_page = RegisterPage(self.driver)
+        register_page.register_user(
+            register_page.test_data[test_data]["firstname"],
+            register_page.test_data[test_data]["lastname"],
+            register_page.test_data[test_data]["email"],
+            register_page.test_data[test_data]["password"],
+            register_page.test_data[test_data]["password_confirmation"]
+        )
     
     def test_register_6(self):
-        driver = self.driver
-        driver.get("https://magento.softwaretestingboard.com/")
-        el = driver.find_element(By.LINK_TEXT,"Create an Account")
-        el.click()
-        firstName = driver.find_element(By.NAME,"firstname")
-        firstName.send_keys("Jeff")
-        lastName = driver.find_element(By.NAME,"lastname")
-        lastName.send_keys("Scott")
-        email = driver.find_element(By.NAME,"email")
-        email.send_keys("jeffscott@gmail.com")
-        password = driver.find_element(By.NAME,"password")
-        password.send_keys("1")
-        passConfirmation = driver.find_element(By.NAME,"password_confirmation")
-        passConfirmation.send_keys("@Jeffscott12345@")
-        btnsignUp = driver.find_element(By.XPATH,"//button[@title='Create an Account']//span[contains(text(),'Create an Account')]")
-        btnsignUp.click()
+        OpenWeb.go_to_register_page(self.driver)
+        test_data = 'test_register_6'
+        register_page = RegisterPage(self.driver)
+        register_page.register_user(
+            register_page.test_data[test_data]["firstname"],
+            register_page.test_data[test_data]["lastname"],
+            register_page.test_data[test_data]["email"],
+            register_page.test_data[test_data]["password"],
+            register_page.test_data[test_data]["password_confirmation"]
+        )
     
     def test_register_7(self):
-        driver = self.driver
-        driver.get("https://magento.softwaretestingboard.com/")
-        el = driver.find_element(By.LINK_TEXT,"Create an Account")
-        el.click()
-        firstName = driver.find_element(By.NAME,"firstname")
-        firstName.send_keys("Jeff")
-        lastName = driver.find_element(By.NAME,"lastname")
-        lastName.send_keys("Scott")
-        email = driver.find_element(By.NAME,"email")
-        email.send_keys("jeffscott@gmail.com")
-        password = driver.find_element(By.NAME,"password")
-        password.send_keys()
-        passConfirmation = driver.find_element(By.NAME,"password_confirmation")
-        passConfirmation.send_keys("@Jeffscott12345@")
-        btnsignUp = driver.find_element(By.XPATH,"//button[@title='Create an Account']//span[contains(text(),'Create an Account')]")
-        btnsignUp.click()
+        OpenWeb.go_to_register_page(self.driver)
+        test_data = 'test_register_7'
+        register_page = RegisterPage(self.driver)
+        register_page.register_user(
+            register_page.test_data[test_data]["firstname"],
+            register_page.test_data[test_data]["lastname"],
+            register_page.test_data[test_data]["email"],
+            register_page.test_data[test_data]["password"],
+            register_page.test_data[test_data]["password_confirmation"]
+        )
     
     def test_register_8(self):
-        driver = self.driver
-        driver.get("https://magento.softwaretestingboard.com/")
-        el = driver.find_element(By.LINK_TEXT,"Create an Account")
-        el.click()
-        firstName = driver.find_element(By.NAME,"firstname")
-        firstName.send_keys("Jeff")
-        lastName = driver.find_element(By.NAME,"lastname")
-        lastName.send_keys("Scott")
-        email = driver.find_element(By.NAME,"email")
-        email.send_keys("jeffscott@gmail.com")
-        password = driver.find_element(By.NAME,"password")
-        password.send_keys()
-        passConfirmation = driver.find_element(By.NAME,"password_confirmation")
-        passConfirmation.send_keys("@Jeffscott12345@")
-        btnsignUp = driver.find_element(By.XPATH,"//button[@title='Create an Account']//span[contains(text(),'Create an Account')]")
-        btnsignUp.click()
+        OpenWeb.go_to_register_page(self.driver)
+        test_data = 'test_register_8'
+        register_page = RegisterPage(self.driver)
+        register_page.register_user(
+            register_page.test_data[test_data]["firstname"],
+            register_page.test_data[test_data]["lastname"],
+            register_page.test_data[test_data]["email"],
+            register_page.test_data[test_data]["password"],
+            register_page.test_data[test_data]["password_confirmation"]
+        )
     
     def test_register_9(self):
-        driver = self.driver
-        driver.get("https://magento.softwaretestingboard.com/")
-        el = driver.find_element(By.LINK_TEXT,"Create an Account")
-        el.click()
-        firstName = driver.find_element(By.NAME,"firstname")
-        firstName.send_keys("Jeff")
-        lastName = driver.find_element(By.NAME,"lastname")
-        lastName.send_keys("Scott")
-        email = driver.find_element(By.NAME,"email")
-        email.send_keys("jeffscott@gmail.com")
-        password = driver.find_element(By.NAME,"password")
-        password.send_keys("@Jeffscott12345@")
-        passConfirmation = driver.find_element(By.NAME,"password_confirmation")
-        passConfirmation.send_keys()
-        btnsignUp = driver.find_element(By.XPATH,"//button[@title='Create an Account']//span[contains(text(),'Create an Account')]")
-        btnsignUp.click()
+        OpenWeb.go_to_register_page(self.driver)
+        test_data = 'test_register_9'
+        register_page = RegisterPage(self.driver)
+        register_page.register_user(
+            register_page.test_data[test_data]["firstname"],
+            register_page.test_data[test_data]["lastname"],
+            register_page.test_data[test_data]["email"],
+            register_page.test_data[test_data]["password"],
+            register_page.test_data[test_data]["password_confirmation"]
+        )
     
     def test_register_10(self):
-        driver = self.driver
-        driver.get("https://magento.softwaretestingboard.com/")
-        el = driver.find_element(By.LINK_TEXT,"Create an Account")
-        el.click()
-        firstName = driver.find_element(By.NAME,"firstname")
-        firstName.send_keys("Jeff")
-        lastName = driver.find_element(By.NAME,"lastname")
-        lastName.send_keys("Scott")
-        email = driver.find_element(By.NAME,"email")
-        email.send_keys()
-        password = driver.find_element(By.NAME,"password")
-        password.send_keys()
-        passConfirmation = driver.find_element(By.NAME,"password_confirmation")
-        passConfirmation.send_keys()
-        btnsignUp = driver.find_element(By.XPATH,"//button[@title='Create an Account']//span[contains(text(),'Create an Account')]")
-        btnsignUp.click()
-    
+        OpenWeb.go_to_register_page(self.driver)
+        test_data = 'test_register_10'
+        register_page = RegisterPage(self.driver)
+        register_page.register_user(
+            register_page.test_data[test_data]["firstname"],
+            register_page.test_data[test_data]["lastname"],
+            register_page.test_data[test_data]["email"],
+            register_page.test_data[test_data]["password"],
+            register_page.test_data[test_data]["password_confirmation"]
+        )
     def test_register_11(self):
-        driver = self.driver
-        driver.get("https://magento.softwaretestingboard.com/")
-        el = driver.find_element(By.LINK_TEXT,"Create an Account")
-        el.click()
-        firstName = driver.find_element(By.NAME,"firstname")
-        firstName.send_keys("Jeff")
-        lastName = driver.find_element(By.NAME,"lastname")
-        lastName.send_keys("Scott")
-        email = driver.find_element(By.NAME,"email")
-        email.send_keys("jeffscott@gmail.com")
-        password = driver.find_element(By.NAME,"password")
-        password.send_keys("@Jeffscott12345@")
-        passConfirmation = driver.find_element(By.NAME,"password_confirmation")
-        passConfirmation.send_keys("@Jeffscott12345@")
-        btnsignUp = driver.find_element(By.XPATH,"//button[@title='Create an Account']//span[contains(text(),'Create an Account')]")
-        btnsignUp.click()
+        OpenWeb.go_to_register_page(self.driver)
+        test_data = 'test_register_11'
+        register_page = RegisterPage(self.driver)
+        register_page.register_user(
+            register_page.test_data[test_data]["firstname"],
+            register_page.test_data[test_data]["lastname"],
+            register_page.test_data[test_data]["email"],
+            register_page.test_data[test_data]["password"],
+            register_page.test_data[test_data]["password_confirmation"]
+        )
 
     def tearDown(self):
         self.driver.close()
 
-if __name__ == "__main__":
-    unittest.main()
+if __name__ == '__main__':
+    unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='example_dir'))
