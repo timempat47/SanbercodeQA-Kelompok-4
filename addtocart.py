@@ -16,7 +16,7 @@ class AddToCartTest(unittest.TestCase):
         driver_service = Service(executable_path="C:/webdrivers/chromedriver")
         self.driver = webdriver.Chrome(service=driver_service, options=chrome_options)
 
-    def test_add_to_cart(self):
+    def test_add_single_product_to_cart(self):
         OpenWeb.go_to_register_page(self.driver)
         login_page = LoginPage(self.driver)
         test_data = 'test_login'
@@ -28,7 +28,7 @@ class AddToCartTest(unittest.TestCase):
         add_to_cart_page.add_to_cart(product_index=2, size_index=168, color_index=59, quantity='1')
         add_to_cart_page.verify_success_message()
 
-    def test_add_to_cart1(self):
+    def test_add_multiple_products_to_cart(self):
         OpenWeb.go_to_register_page(self.driver)
         login_page = LoginPage(self.driver)
         test_data = 'test_login'
@@ -44,7 +44,7 @@ class AddToCartTest(unittest.TestCase):
         add_to_cart_page.add_to_cart(product_index=3, size_index=168, color_index=52, quantity='1')
         add_to_cart_page.verify_success_message()
 
-    def test_add_to_cart_2(self):
+    def test_add_product_with_large_quantity(self):
         OpenWeb.go_to_register_page(self.driver)
         login_page = LoginPage(self.driver)
         test_data = 'test_login'
@@ -56,7 +56,7 @@ class AddToCartTest(unittest.TestCase):
         add_to_cart_page.add_to_cart(product_index=2, size_index=168, color_index=59, quantity='100000')
         add_to_cart_page.verify_error_message_maximum()        
 
-    def test_add_to_cart_3(self):
+    def test_add_product_with_zero_quantity(self):
         OpenWeb.go_to_register_page(self.driver)
         login_page = LoginPage(self.driver)
         test_data = 'test_login'
@@ -68,7 +68,7 @@ class AddToCartTest(unittest.TestCase):
         add_to_cart_page.add_to_cart(product_index=2, size_index=168, color_index=59, quantity='0')
         add_to_cart_page.verify_error_message_zero()   
 
-    def test_add_to_cart_4(self):
+    def test_add_product_to_cart_from_different_pages(self):
         OpenWeb.go_to_register_page(self.driver)
         login_page = LoginPage(self.driver)
         test_data = 'test_login'
@@ -88,7 +88,7 @@ class AddToCartTest(unittest.TestCase):
         add_to_cart_page.add_to_cart_on_category(product_index=1, size_index=168, color_index=50, quantity='1')
         add_to_cart_page.verify_success_message()         
 
-    def test_add_to_cart_5(self):
+    def test_add_product_with_category_filter(self):
         OpenWeb.go_to_register_page(self.driver)
         login_page = LoginPage(self.driver)
         test_data = 'test_login'
