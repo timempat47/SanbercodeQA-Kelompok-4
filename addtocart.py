@@ -17,7 +17,7 @@ class AddToCartTest(unittest.TestCase):
         self.driver = webdriver.Chrome(service=driver_service, options=chrome_options)
 
     def test_add_single_product_to_cart(self):
-        OpenWeb.go_to_register_page(self.driver)
+        OpenWeb.go_to_magento(self.driver)
         login_page = LoginPage(self.driver)
         test_data = 'test_login'
         login_page.login(
@@ -29,7 +29,7 @@ class AddToCartTest(unittest.TestCase):
         add_to_cart_page.verify_success_message()
 
     def test_add_multiple_products_to_cart(self):
-        OpenWeb.go_to_register_page(self.driver)
+        OpenWeb.go_to_magento(self.driver)
         login_page = LoginPage(self.driver)
         test_data = 'test_login'
         login_page.login(
@@ -39,13 +39,13 @@ class AddToCartTest(unittest.TestCase):
         add_to_cart_page = AddToCartPage(self.driver)
         add_to_cart_page.add_to_cart(product_index=2, size_index=168, color_index=59, quantity='1')
         add_to_cart_page.verify_success_message()
-        OpenWeb.go_to_register_page(self.driver)
+        OpenWeb.go_to_magento(self.driver)
         add_to_cart_page = AddToCartPage(self.driver)
         add_to_cart_page.add_to_cart(product_index=3, size_index=168, color_index=52, quantity='1')
         add_to_cart_page.verify_success_message()
 
     def test_add_product_with_large_quantity(self):
-        OpenWeb.go_to_register_page(self.driver)
+        OpenWeb.go_to_magento(self.driver)
         login_page = LoginPage(self.driver)
         test_data = 'test_login'
         login_page.login(
@@ -57,7 +57,7 @@ class AddToCartTest(unittest.TestCase):
         add_to_cart_page.verify_error_message_maximum()        
 
     def test_add_product_with_zero_quantity(self):
-        OpenWeb.go_to_register_page(self.driver)
+        OpenWeb.go_to_magento(self.driver)
         login_page = LoginPage(self.driver)
         test_data = 'test_login'
         login_page.login(
@@ -69,7 +69,7 @@ class AddToCartTest(unittest.TestCase):
         add_to_cart_page.verify_error_message_zero()   
 
     def test_add_product_to_cart_from_different_pages(self):
-        OpenWeb.go_to_register_page(self.driver)
+        OpenWeb.go_to_magento(self.driver)
         login_page = LoginPage(self.driver)
         test_data = 'test_login'
         login_page.login(
@@ -89,7 +89,7 @@ class AddToCartTest(unittest.TestCase):
         add_to_cart_page.verify_success_message()         
 
     def test_add_product_with_category_filter(self):
-        OpenWeb.go_to_register_page(self.driver)
+        OpenWeb.go_to_magento(self.driver)
         login_page = LoginPage(self.driver)
         test_data = 'test_login'
         login_page.login(

@@ -1,70 +1,91 @@
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
 import time
-import checkout
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
-def test_product(driver, produknya, ukurannya, warnanya):
-    search = driver.find_element(By.ID,"search")
-    time.sleep(1)
-    search.send_keys(produknya)
-    time.sleep(2)
-    search.send_keys(Keys.ENTER)
-    time.sleep(2)
-    driver.find_element(By.LINK_TEXT,produknya).click()
-    time.sleep(2)
-    opsi = driver.find_element(By.CLASS_NAME,"swatch-opt")
-    time.sleep(1)
-    opsi.find_element(By.XPATH,"//div[@option-label='"+ukurannya+"']").click()
-    time.sleep(1)
-    opsi.find_element(By.XPATH,"//div[@option-label='"+warnanya+"']").click()
-    time.sleep(1)
-    driver.find_element(By.ID,"product-addtocart-button").click()
+class AddToCartPage:
+    def __init__(self, driver):
+        self.driver = driver
 
-def test_checkout_1(driver):
-    test_product(driver, checkout.inputan.product1, checkout.inputan.ukuran1, checkout.inputan.warna1)
-    time.sleep(4)
-    driver.find_element(By.CLASS_NAME,"minicart-wrapper").click()
-    time.sleep(5)
-    driver.find_element(By.ID,"top-cart-btn-checkout").click()
-    time.sleep(3)
+    def add_to_cart(self, product_index, size_index, color_index, quantity):
+        # Go to the product page
+        product = self.driver.find_element(By.XPATH, f'//*[@id="maincontent"]/div[3]/div/div[2]/div[3]/div/div/ol/li[{product_index}]/div/a/span/span/img')
+        product.click()
+        time.sleep(5)
 
-def test_checkout_2(driver):
-    test_product(driver, checkout.inputan.product1, checkout.inputan.ukuran1, checkout.inputan.warna1)
-    time.sleep(2)
-    test_product(driver, checkout.inputan.product2, checkout.inputan.ukuran1, checkout.inputan.warna2)
-    time.sleep(4)
-    driver.find_element(By.CLASS_NAME,"minicart-wrapper").click()
-    time.sleep(5)
-    driver.find_element(By.ID,"top-cart-btn-checkout").click()
-    time.sleep(3)
+        # Select size
+        size = self.driver.find_element(By.XPATH, f'//*[@id="option-label-size-143-item-{size_index}"]')
+        size.click()
+        time.sleep(5)
 
-def test_isi_form(driver):
-    test_checkout_2(driver)
-    shipping = driver.find_element(By.ID,"checkout-step-shipping")
-    time.sleep(3)
-    shipping.find_element(By.ID,"customer-email").send_keys(checkout.inputan.email)
-    time.sleep(3)
-    shipping.find_element(By.XPATH,"//option[@data-title='"+checkout.inputan.Country+"']").click()
-    time.sleep(3)
-    shipping.find_element(By.XPATH,"//input[@name='firstname']").send_keys(checkout.inputan.First_Name)
-    time.sleep(1)
-    shipping.find_element(By.XPATH,"//input[@name='lastname']").send_keys(checkout.inputan.Last_Name)
-    time.sleep(1)
-    shipping.find_element(By.XPATH,"//input[@name='company']").send_keys(checkout.inputan.Company)
-    time.sleep(1)
-    shipping.find_element(By.XPATH,"//input[@name='street[0]']").send_keys(checkout.inputan.StreetAddress_1)
-    time.sleep(1)
-    shipping.find_element(By.XPATH,"//input[@name='street[1]']").send_keys(checkout.inputan.StreetAddress_2)
-    time.sleep(1)
-    shipping.find_element(By.XPATH,"//input[@name='street[2]']").send_keys(checkout.inputan.StreetAddress_3)
-    time.sleep(1)
-    shipping.find_element(By.XPATH,"//input[@name='city']").send_keys(checkout.inputan.City)
-    time.sleep(1)
-    shipping.find_element(By.XPATH,"//input[@name='region']").send_keys(checkout.inputan.Province)
-    time.sleep(2)
-    shipping.find_element(By.XPATH,"//input[@name='postcode']").send_keys(checkout.inputan.Zip_Code_valid)
-    time.sleep(3)
-    shipping.find_element(By.XPATH,"//input[@name='telephone']").send_keys(checkout.inputan.Phone_Number)
-    time.sleep(3)
-    shipping.find_element(By.XPATH,"//button[@data-role='opc-continue']").click()
-    time.sleep(5)
+        # Select color
+        color = self.driver.find_element(By.XPATH, f'//*[@id="option-label-color-93-item-{color_index}"]')
+        color.click()
+        time.sleep(5)
+
+        # Enter quantity
+        qty = self.driver.find_element(By.XPATH, '//*[@id="qty"]')
+        qty.clear()
+        qty.send_keys(quantity)
+        time.sleep(5)
+
+        # Click on "Add to Cart" button
+        add = self.driver.find_element(By.XPATH, '//*[@id="product-addtocart-button"]')
+        add.click()
+        time.sleep(5)
+    def category_product(self,category_index, sub_category_index, sub_sub_category_index):
+        try:
+            cursor = ActionChains(self.driver)
+            wait = WebDriverWait(self.driver, 10)
+            category = self.driver.find_element(By.XPATH, f'//*[@id="ui-id-{category_index}"]/span[2]')
+            cursor.move_to_element(category).perform()
+
+            sub_category = wait.until(EC.element_to_be_clickable((By.XPATH, f'//*[@id="ui-id-{sub_category_index}"]/span[2]')))
+            cursor.move_to_element(sub_category).perform()
+
+            sub_sub_category = wait.until(EC.element_to_be_clickable((By.XPATH, f'//*[@id="ui-id-{sub_sub_category_index}"]/span')))
+            cursor.move_to_element(sub_sub_category).click().perform()
+
+
+        except Exception as e:
+            print("Element not found or interactable.")        
+    def add_to_cart_on_category(self, product_index, size_index, color_index, quantity):
+        # Go to the product page
+        product = self.driver.find_element(By.XPATH, f'//*[@id="maincontent"]/div[3]/div[1]/div[3]/ol/li[{product_index}]/div/a/span/span/img')
+        product.click()
+        time.sleep(5)
+
+        # Select size
+        size = self.driver.find_element(By.XPATH, f'//*[@id="option-label-size-143-item-{size_index}"]')
+        size.click()
+        time.sleep(5)
+
+        # Select color
+        color = self.driver.find_element(By.XPATH, f'//*[@id="option-label-color-93-item-{color_index}"]')
+        color.click()
+        time.sleep(5)
+
+        # Enter quantity
+        qty = self.driver.find_element(By.XPATH, '//*[@id="qty"]')
+        qty.clear()
+        qty.send_keys(quantity)
+        time.sleep(5)
+
+        # Click on "Add to Cart" button
+        add = self.driver.find_element(By.XPATH, '//*[@id="product-addtocart-button"]')
+        add.click()
+        time.sleep(5)
+    def verify_success_message(self):
+        response_data = self.driver.find_element(By.XPATH, '//*[@id="maincontent"]/div[1]/div[2]/div/div/div').text
+        assert 'to your shopping cart.' in response_data
+            
+    def verify_error_message_maximum(self):
+        response_data = self.driver.find_element(By.XPATH, '//*[@id="qty-error"]').text
+        assert 'The maximum you may purchase is 10000' in response_data
+
+    def verify_error_message_zero(self):
+        response_data = self.driver.find_element(By.XPATH, '//*[@id="qty-error"]').text
+        assert 'Please enter a quantity greater than 0.' in response_data
+
+ 

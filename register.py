@@ -18,7 +18,7 @@ class MagentoRegister(unittest.TestCase):
 
     
     def test_register(self):
-        OpenWeb.go_to_register_page(self.driver)
+        OpenWeb.go_to_magento(self.driver)
         test_data = 'test_register'
         register_page = RegisterPage(self.driver)
         register_page.register_user(
@@ -30,7 +30,7 @@ class MagentoRegister(unittest.TestCase):
         )
 
     def test_register_1(self):
-        OpenWeb.go_to_register_page(self.driver)
+        OpenWeb.go_to_magento(self.driver)
         test_data = 'test_register_1'
         register_page = RegisterPage(self.driver)
         register_page.register_user(
@@ -42,7 +42,7 @@ class MagentoRegister(unittest.TestCase):
         )
     
     def test_register_2(self):
-        OpenWeb.go_to_register_page(self.driver)
+        OpenWeb.go_to_magento(self.driver)
         test_data = 'test_register_2'
         register_page = RegisterPage(self.driver)
         register_page.register_user(
@@ -54,7 +54,7 @@ class MagentoRegister(unittest.TestCase):
         )
     
     def test_register_3(self):
-        OpenWeb.go_to_register_page(self.driver)
+        OpenWeb.go_to_magento(self.driver)
         test_data = 'test_register_3'
         register_page = RegisterPage(self.driver)
         register_page.register_user(
@@ -66,7 +66,7 @@ class MagentoRegister(unittest.TestCase):
         )
     
     def test_register_4(self):
-        OpenWeb.go_to_register_page(self.driver)
+        OpenWeb.go_to_magento(self.driver)
         test_data = 'test_register_4'
         register_page = RegisterPage(self.driver)
         register_page.register_user(
@@ -78,7 +78,7 @@ class MagentoRegister(unittest.TestCase):
         )
     
     def test_register_5(self):
-        OpenWeb.go_to_register_page(self.driver)
+        OpenWeb.go_to_magento(self.driver)
         test_data = 'test_register_5'
         register_page = RegisterPage(self.driver)
         register_page.register_user(
@@ -90,7 +90,7 @@ class MagentoRegister(unittest.TestCase):
         )
     
     def test_register_6(self):
-        OpenWeb.go_to_register_page(self.driver)
+        OpenWeb.go_to_magento(self.driver)
         test_data = 'test_register_6'
         register_page = RegisterPage(self.driver)
         register_page.register_user(
@@ -102,7 +102,7 @@ class MagentoRegister(unittest.TestCase):
         )
     
     def test_register_7(self):
-        OpenWeb.go_to_register_page(self.driver)
+        OpenWeb.go_to_magento(self.driver)
         test_data = 'test_register_7'
         register_page = RegisterPage(self.driver)
         register_page.register_user(
@@ -114,7 +114,7 @@ class MagentoRegister(unittest.TestCase):
         )
     
     def test_register_8(self):
-        OpenWeb.go_to_register_page(self.driver)
+        OpenWeb.go_to_magento(self.driver)
         test_data = 'test_register_8'
         register_page = RegisterPage(self.driver)
         register_page.register_user(
@@ -126,7 +126,7 @@ class MagentoRegister(unittest.TestCase):
         )
     
     def test_register_9(self):
-        OpenWeb.go_to_register_page(self.driver)
+        OpenWeb.go_to_magento(self.driver)
         test_data = 'test_register_9'
         register_page = RegisterPage(self.driver)
         register_page.register_user(
@@ -138,7 +138,7 @@ class MagentoRegister(unittest.TestCase):
         )
     
     def test_register_10(self):
-        OpenWeb.go_to_register_page(self.driver)
+        OpenWeb.go_to_magento(self.driver)
         test_data = 'test_register_10'
         register_page = RegisterPage(self.driver)
         register_page.register_user(
@@ -149,7 +149,7 @@ class MagentoRegister(unittest.TestCase):
             register_page.test_data[test_data]["password_confirmation"]
         )
     def test_register_11(self):
-        OpenWeb.go_to_register_page(self.driver)
+        OpenWeb.go_to_magento(self.driver)
         test_data = 'test_register_11'
         register_page = RegisterPage(self.driver)
         register_page.register_user(

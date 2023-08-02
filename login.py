@@ -18,7 +18,7 @@ class MagentoLogin(unittest.TestCase):
 
     
     def test_login(self):
-        OpenWeb.go_to_register_page(self.driver)
+        OpenWeb.go_to_magento(self.driver)
         login_page = LoginPage(self.driver)
         test_data = 'test_login'
         login_page.login(
@@ -26,7 +26,7 @@ class MagentoLogin(unittest.TestCase):
             LoginPage.test_data[test_data]['password']
         )
     def test_login_1(self):
-        OpenWeb.go_to_register_page(self.driver)
+        OpenWeb.go_to_magento(self.driver)
         login_page = LoginPage(self.driver)
         test_data = 'test_login_1'
         login_page.login(
@@ -35,7 +35,7 @@ class MagentoLogin(unittest.TestCase):
         )
    
     def test_login_2(self):
-        OpenWeb.go_to_register_page(self.driver)
+        OpenWeb.go_to_magento(self.driver)
         login_page = LoginPage(self.driver)
         test_data = 'test_login_2'
         login_page.login(
@@ -45,7 +45,7 @@ class MagentoLogin(unittest.TestCase):
 
     
     def test_login_3(self):
-        OpenWeb.go_to_register_page(self.driver)
+        OpenWeb.go_to_magento(self.driver)
         login_page = LoginPage(self.driver)
         test_data = 'test_login_3'
         login_page.login(
