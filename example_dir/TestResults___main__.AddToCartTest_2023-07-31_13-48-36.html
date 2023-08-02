@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Unittest Results</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="text-capitalize">Unittest Results</h2>
+                <p class='attribute'><strong>Start Time: </strong>2023-07-31 13:48:36</p>
+                <p class='attribute'><strong>Duration: </strong>152.23 s</p>
+                <p class='attribute'><strong>Summary: </strong>Total: 2, Pass: 1, Error: 1</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-10 col-md-10">
+                <table class='table table-hover table-responsive'>
+                    <thead>
+                        <tr>
+                            <th>__main__.AddToCartTest</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class='success'>
+                            <td class="col-xs-10">test_add_to_cart</td>
+                            <td class="col-xs-1">
+                                <span class="label label-success" style="display:block;width:40px;">Pass</span>
+                            </td>
+                            <td class="col-xs-1">
+                                <button class="btn btn-default btn-xs">View</button>
+                            </td>
+                        </tr>
+                        <tr style="display:none;">
+                            <td class="col-xs-9" colspan="3"><p>Berhasil menambahkan produk
+</p>
+                            </td>
+                        </tr>
+                        <tr class='warning'>
+                            <td class="col-xs-10">test_add_to_cart1</td>
+                            <td class="col-xs-1">
+                                <span class="label label-warning" style="display:block;width:40px;">Error</span>
+                            </td>
+                            <td class="col-xs-1">
+                                <button class="btn btn-default btn-xs">View</button>
+                            </td>
+                        </tr>
+                        <tr style="display:none;">
+                            <td class="col-xs-9" colspan="3"><p>Berhasil menambahkan produk.
+</p><p style="color:maroon;">InvalidSelectorException: Message: invalid selector: Unable to locate an element with the xpath expression //*[@id="maincontent"]/div[3]/div/div/2/div[3]/div/div/ol/li[3]/div/a/span/span/img because of the following error:
+SyntaxError: Failed to execute 'evaluate' on 'Document': The string '//*[@id="maincontent"]/div[3]/div/div/2/div[3]/div/div/ol/li[3]/div/a/span/span/img' is not a valid XPath expression.
+  (Session info: chrome=115.0.5790.110); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+Backtrace:
+	GetHandleVerifier [0x010DA813+48355]
+	(No symbol) [0x0106C4B1]
+	(No symbol) [0x00F75358]
+	(No symbol) [0x00F787A1]
+	(No symbol) [0x00F799E1]
+	(No symbol) [0x00F79A80]
+	(No symbol) [0x00FA061C]
+	(No symbol) [0x00FA0B3B]
+	(No symbol) [0x00FCE232]
+	(No symbol) [0x00FBA784]
+	(No symbol) [0x00FCC922]
+	(No symbol) [0x00FBA536]
+	(No symbol) [0x00F982DC]
+	(No symbol) [0x00F993DD]
+	GetHandleVerifier [0x0133AABD+2539405]
+	GetHandleVerifier [0x0137A78F+2800735]
+	GetHandleVerifier [0x0137456C+2775612]
+	GetHandleVerifier [0x011651E0+616112]
+	(No symbol) [0x01075F8C]
+	(No symbol) [0x01072328]
+	(No symbol) [0x0107240B]
+	(No symbol) [0x01064FF7]
+	BaseThreadInitThunk [0x76D6FA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77677A9E+286]
+	RtlGetAppContainerNamedObjectPath [0x77677A6E+238]
+</p><p style="color:maroon;">Traceback (most recent call last):
+  File "f:\Final Project Sanber\SanbercodeQA-Kelompok-4\addtocart.py", line 87, in test_add_to_cart1
+    product = driver.find_element(By.XPATH, '//*[@id="maincontent"]/div[3]/div/div/2/div[3]/div/div/ol/li[3]/div/a/span/span/img')
+  File "C:\Users\WINDOWS\AppData\Local\Programs\Python\Python310\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 740, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+  File "C:\Users\WINDOWS\AppData\Local\Programs\Python\Python310\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 346, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\WINDOWS\AppData\Local\Programs\Python\Python310\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 245, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidSelectorException: Message: invalid selector: Unable to locate an element with the xpath expression //*[@id="maincontent"]/div[3]/div/div/2/div[3]/div/div/ol/li[3]/div/a/span/span/img because of the following error:
+SyntaxError: Failed to execute 'evaluate' on 'Document': The string '//*[@id="maincontent"]/div[3]/div/div/2/div[3]/div/div/ol/li[3]/div/a/span/span/img' is not a valid XPath expression.
+  (Session info: chrome=115.0.5790.110); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+Backtrace:
+	GetHandleVerifier [0x010DA813+48355]
+	(No symbol) [0x0106C4B1]
+	(No symbol) [0x00F75358]
+	(No symbol) [0x00F787A1]
+	(No symbol) [0x00F799E1]
+	(No symbol) [0x00F79A80]
+	(No symbol) [0x00FA061C]
+	(No symbol) [0x00FA0B3B]
+	(No symbol) [0x00FCE232]
+	(No symbol) [0x00FBA784]
+	(No symbol) [0x00FCC922]
+	(No symbol) [0x00FBA536]
+	(No symbol) [0x00F982DC]
+	(No symbol) [0x00F993DD]
+	GetHandleVerifier [0x0133AABD+2539405]
+	GetHandleVerifier [0x0137A78F+2800735]
+	GetHandleVerifier [0x0137456C+2775612]
+	GetHandleVerifier [0x011651E0+616112]
+	(No symbol) [0x01075F8C]
+	(No symbol) [0x01072328]
+	(No symbol) [0x0107240B]
+	(No symbol) [0x01064FF7]
+	BaseThreadInitThunk [0x76D6FA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77677A9E+286]
+	RtlGetAppContainerNamedObjectPath [0x77677A6E+238]
+
+</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                Total: 2, Pass: 1, Error: 1 -- Duration: 152.23 s
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('td').on('click', '.btn', function(e){
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                var $this = $(this);
+                var $nextRow = $this.closest('tr').next('tr');
+                $nextRow.slideToggle("fast");
+                $this.text(function(i, text){
+                    if (text === 'View') {
+                        return 'Hide';
+                    } else {
+                        return 'View';
+                    };
+                });
+            });
+        });
+    </script>
+</body>
+</html
