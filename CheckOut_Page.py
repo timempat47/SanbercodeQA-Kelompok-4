@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.firefox.service import Service as FirefoxService
 from webdriver_manager.firefox import GeckoDriverManager
-from Object import data
+from POM import CheckOut_Data
 import time
 import tracemalloc
 
@@ -46,9 +46,9 @@ class CheckoutMagento_1(unittest.TestCase):
     def test_1_proceed_to_checkout(self):
         driver = self.driver
         driver.get(self.url)
-        data.test_product(driver, inputan.product1, inputan.ukuran1, inputan.warna1)
+        CheckOut_Data.test_product(driver, inputan.product1, inputan.ukuran1, inputan.warna1)
         time.sleep(2)
-        data.test_product(driver, inputan.product2, inputan.ukuran1, inputan.warna2)
+        CheckOut_Data.test_product(driver, inputan.product2, inputan.ukuran1, inputan.warna2)
         time.sleep(2)
         driver.find_element(By.CLASS_NAME,"minicart-wrapper").click()
         time.sleep(3)
@@ -60,7 +60,7 @@ class CheckoutMagento_1(unittest.TestCase):
     def test_2_isi_form_lengkap(self):
         driver = self.driver
         driver.get(self.url)
-        data.test_checkout_2(driver)
+        CheckOut_Data.test_checkout_2(driver)
         shipping = driver.find_element(By.ID,"checkout-step-shipping")
         time.sleep(3)
         shipping.find_element(By.ID,"customer-email").send_keys(inputan.email)
@@ -95,7 +95,7 @@ class CheckoutMagento_1(unittest.TestCase):
     def test_3_isi_form_login(self):
         driver = self.driver
         driver.get(self.url)
-        data.test_checkout_2(driver)
+        CheckOut_Data.test_checkout_2(driver)
         shipping = driver.find_element(By.ID,"checkout-step-shipping")
         time.sleep(3)
         shipping.find_element(By.ID,"customer-email").send_keys(inputan.valid_user)
@@ -112,7 +112,7 @@ class CheckoutMagento_1(unittest.TestCase):
     def test_4_isi_form_tanpa_FirstName(self):
         driver = self.driver
         driver.get(self.url)
-        data.test_checkout_1(driver)
+        CheckOut_Data.test_checkout_1(driver)
         shipping = driver.find_element(By.ID,"checkout-step-shipping")
         time.sleep(3)
         shipping.find_element(By.ID,"customer-email").send_keys(inputan.email)
@@ -156,7 +156,7 @@ class CheckoutMagento_2(unittest.TestCase):
     def test_5_isi_form_tanpa_LastName(self):
         driver = self.driver
         driver.get(self.url)
-        data.test_checkout_1(driver)
+        CheckOut_Data.test_checkout_1(driver)
         shipping = driver.find_element(By.ID,"checkout-step-shipping")
         time.sleep(3)
         shipping.find_element(By.ID,"customer-email").send_keys(inputan.email)
@@ -196,7 +196,7 @@ class CheckoutMagento_2(unittest.TestCase):
     def test_6_isi_form_tanpa_Company(self):
         driver = self.driver
         driver.get(self.url)
-        data.test_checkout_2(driver)
+        CheckOut_Data.test_checkout_2(driver)
         shipping = driver.find_element(By.ID,"checkout-step-shipping")
         time.sleep(3)
         shipping.find_element(By.ID,"customer-email").send_keys(inputan.email)
@@ -231,7 +231,7 @@ class CheckoutMagento_2(unittest.TestCase):
     def test_7_isi_form_tanpa_Address1(self):
         driver = self.driver
         driver.get(self.url)
-        data.test_checkout_1(driver)
+        CheckOut_Data.test_checkout_1(driver)
         shipping = driver.find_element(By.ID,"checkout-step-shipping")
         time.sleep(3)
         shipping.find_element(By.ID,"customer-email").send_keys(inputan.email)
@@ -267,7 +267,7 @@ class CheckoutMagento_2(unittest.TestCase):
     def test_8_isi_form_tanpa_Address2(self):
         driver = self.driver
         driver.get(self.url)
-        data.test_checkout_2(driver)
+        CheckOut_Data.test_checkout_2(driver)
         shipping = driver.find_element(By.ID,"checkout-step-shipping")
         time.sleep(3)
         shipping.find_element(By.ID,"customer-email").send_keys(inputan.email)
@@ -310,7 +310,7 @@ class CheckoutMagento_3(unittest.TestCase):
     def test_9_isi_form_tanpa_Address3(self):
         driver = self.driver
         driver.get(self.url)
-        data.test_checkout_2(driver)
+        CheckOut_Data.test_checkout_2(driver)
         shipping = driver.find_element(By.ID,"checkout-step-shipping")
         time.sleep(3)
         shipping.find_element(By.ID,"customer-email").send_keys(inputan.email)
@@ -345,7 +345,7 @@ class CheckoutMagento_3(unittest.TestCase):
     def test_10_isi_form_tanpa_City(self):
         driver = self.driver
         driver.get(self.url)
-        data.test_checkout_1(driver)
+        CheckOut_Data.test_checkout_1(driver)
         shipping = driver.find_element(By.ID,"checkout-step-shipping")
         time.sleep(3)
         shipping.find_element(By.ID,"customer-email").send_keys(inputan.email)
@@ -381,7 +381,7 @@ class CheckoutMagento_3(unittest.TestCase):
     def test_11_isi_form_tanpa_Province(self):
         driver = self.driver
         driver.get(self.url)
-        data.test_checkout_2(driver)
+        CheckOut_Data.test_checkout_2(driver)
         shipping = driver.find_element(By.ID,"checkout-step-shipping")
         time.sleep(3)
         shipping.find_element(By.ID,"customer-email").send_keys(inputan.email)
@@ -424,7 +424,7 @@ class CheckoutMagento_4(unittest.TestCase):
     def test_12_isi_form_tanpa_ZipCode(self):
         driver = self.driver
         driver.get(self.url)
-        data.test_checkout_1(driver)
+        CheckOut_Data.test_checkout_1(driver)
         shipping = driver.find_element(By.ID,"checkout-step-shipping")
         time.sleep(3)
         shipping.find_element(By.ID,"customer-email").send_keys(inputan.email)
@@ -460,7 +460,7 @@ class CheckoutMagento_4(unittest.TestCase):
     def test_13_isi_form_invalid_ZipCode(self):
         driver = self.driver
         driver.get(self.url)
-        data.test_checkout_1(driver)
+        CheckOut_Data.test_checkout_1(driver)
         shipping = driver.find_element(By.ID,"checkout-step-shipping")
         time.sleep(3)
         shipping.find_element(By.ID,"customer-email").send_keys(inputan.email)
@@ -494,7 +494,7 @@ class CheckoutMagento_4(unittest.TestCase):
     def test_14_isi_form_tanpa_Country(self):
         driver = self.driver
         driver.get(self.url)
-        data.test_checkout_1(driver)
+        CheckOut_Data.test_checkout_1(driver)
         shipping = driver.find_element(By.ID,"checkout-step-shipping")
         time.sleep(3)
         shipping.find_element(By.ID,"customer-email").send_keys(inputan.email)
@@ -531,7 +531,7 @@ class CheckoutMagento_4(unittest.TestCase):
     def test_15_isi_form_tanpa_PhoneNumber(self):
         driver = self.driver
         driver.get(self.url)
-        data.test_checkout_1(driver)
+        CheckOut_Data.test_checkout_1(driver)
         shipping = driver.find_element(By.ID,"checkout-step-shipping")
         time.sleep(3)
         shipping.find_element(By.ID,"customer-email").send_keys(inputan.email)
@@ -575,7 +575,7 @@ class CheckoutMagento_5(unittest.TestCase):
     def test_16_isi_form_ganti_Province_di_US(self):
         driver = self.driver
         driver.get(self.url)
-        data.test_checkout_2(driver)
+        CheckOut_Data.test_checkout_2(driver)
         shipping = driver.find_element(By.ID,"checkout-step-shipping")
         time.sleep(3)
         shipping.find_element(By.ID,"customer-email").send_keys(inputan.email)
@@ -610,7 +610,7 @@ class CheckoutMagento_5(unittest.TestCase):
     def test_17_isi_form_ganti_ShippingMethods(self):
         driver = self.driver
         driver.get(self.url)
-        data.test_checkout_2(driver)
+        CheckOut_Data.test_checkout_2(driver)
         shipping = driver.find_element(By.ID,"checkout-step-shipping")
         time.sleep(3)
         shipping.find_element(By.ID,"customer-email").send_keys(inputan.email)
@@ -648,7 +648,7 @@ class CheckoutMagento_5(unittest.TestCase):
     def test_18_tooltip_PhoneNumber(self):
         driver = self.driver
         driver.get(self.url)
-        data.test_checkout_1(driver)
+        CheckOut_Data.test_checkout_1(driver)
         time.sleep(5)
         shipping = driver.find_element(By.ID,"checkout-step-shipping")
         shipping.find_element(By.XPATH,"//div[@name='shippingAddress.telephone']/div/div").click()
@@ -661,7 +661,7 @@ class CheckoutMagento_5(unittest.TestCase):
     def test_19_order_summary(self):
         driver = self.driver
         driver.get(self.url)
-        data.test_checkout_1(driver)
+        CheckOut_Data.test_checkout_1(driver)
         time.sleep(3)
         shipping = driver.find_element(By.ID,"checkout-step-shipping")
         shipping.find_element(By.XPATH,"//div[@class='block items-in-cart']").click()
@@ -674,7 +674,7 @@ class CheckoutMagento_5(unittest.TestCase):
     def test_20_order_summary_details(self):
         driver = self.driver
         driver.get(self.url)
-        data.test_checkout_1(driver)
+        CheckOut_Data.test_checkout_1(driver)
         time.sleep(3)
         shipping = driver.find_element(By.ID,"checkout-step-shipping")
         shipping.find_element(By.XPATH,"//div[@class='block items-in-cart']").click()
@@ -697,7 +697,7 @@ class PaymentMagento(unittest.TestCase):
     def test_21_place_order(self):
         driver = self.driver
         driver.get(self.url)
-        data.test_isi_form(driver)
+        CheckOut_Data.test_isi_form(driver)
         time.sleep(5)
         driver.find_element(By.XPATH,"//div[@class='payment-method-content']/div[4]/div").click()
         time.sleep(9)
@@ -707,7 +707,7 @@ class PaymentMagento(unittest.TestCase):
     def test_22_different_billing(self):
         driver = self.driver
         driver.get(self.url)
-        data.test_isi_form(driver)
+        CheckOut_Data.test_isi_form(driver)
         driver.find_element(By.XPATH,"//div[@class='billing-address-same-as-shipping-block field choice']/input").click()
         time.sleep(3)
         driver.find_element(By.XPATH,"//li[@id='payment']//div[@name='billingAddresscheckmo.country_id']//option[@data-title='"+inputan.Country+"']").click()
